@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Error - GHAS Expense Tracker</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>Something went wrong</h1>
+      <p><%= message %></p>
+      <% if (stack) { %>
+        <pre><%= stack %></pre>
+      <% } %>
+    </main>
+  </body>
+</html>

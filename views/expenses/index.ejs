@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GHAS Expense Tracker</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>GHAS Expense Tracker</h1>
+      <p class="notice">Local-only training app with intentional GitHub Advanced Security findings.</p>
+
+      <section>
+        <h2>Add expense</h2>
+        <form method="post" action="/expenses">
+          <label>Title <input name="title" required></label>
+          <label>Category <input name="category" required></label>
+          <label>Amount <input name="amount" type="number" step="0.01" required></label>
+          <label>Notes <textarea name="notes"></textarea></label>
+          <label>Receipt name <input name="receiptName" placeholder="receipt.txt"></label>
+          <label>Receipt content <textarea name="receiptContent"></textarea></label>
+          <button type="submit">Save expense</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <ul>
+          <% Object.keys(summary).forEach((category) => { %>
+            <li><%= category %>: $<%= summary[category].toFixed(2) %></li>
+          <% }) %>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Expenses</h2>
+        <% if (!expenses.length) { %>
+          <p>No expenses yet.</p>
+        <% } %>
+        <ul class="expenses">
+          <% expenses.forEach((expense) => { %>
+            <li>
+              <a href="/expenses/<%= expense.id %>"><%= expense.title %></a>
+              <span>$<%= Number(expense.amount).toFixed(2) %></span>
+              <span><%= expense.category %></span>
+            </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
