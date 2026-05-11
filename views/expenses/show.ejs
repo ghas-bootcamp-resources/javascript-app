@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= expense.title %> - GHAS Expense Tracker</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main>
+      <a href="/expenses">Back to expenses</a>
+      <h1><%= expense.title %></h1>
+      <dl>
+        <dt>Category</dt>
+        <dd><%= expense.category %></dd>
+        <dt>Amount</dt>
+        <dd>$<%= Number(expense.amount).toFixed(2) %></dd>
+        <dt>Notes</dt>
+        <dd><%= expense.notes %></dd>
+        <% if (expense.receipt_filename) { %>
+          <dt>Receipt</dt>
+          <dd><a href="/receipts/<%= expense.receipt_filename %>"><%= expense.receipt_filename %></a></dd>
+        <% } %>
+      </dl>
+      <form method="post" action="/expenses/<%= expense.id %>/delete">
+        <button type="submit">Delete</button>
+      </form>
+    </main>
+  </body>
+</html>

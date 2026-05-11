@@ -1,0 +1,52 @@
+body {
+  color: #1f2937;
+  background: #f8fafc;
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 520px;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  padding: 0.5rem;
+}
+
+.notice {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 0.75rem;
+}
+
+.expenses {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.expenses li {
+  align-items: center;
+  background: white;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto auto;
+  list-style: none;
+  padding: 0.75rem;
+}

@@ -1,3 +1,5 @@
 node_modules
-test/fixtures/copy
-test/fixtures/invalid
+coverage
+.expense-tracker-data
+tmp
+npm-debug.log*

@@ -1,1 +1,0 @@
-There are many things that you _shouldn't_ do as a software developer. One of the things you want to avoid is adding a GitHub Personal Access Token (PAT) to your source code, like this: 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
