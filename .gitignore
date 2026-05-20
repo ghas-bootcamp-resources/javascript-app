@@ -1,3 +1,6 @@
 node_modules
+coverage
+coverage.xml
+.coverage
 test/fixtures/copy
 test/fixtures/invalid

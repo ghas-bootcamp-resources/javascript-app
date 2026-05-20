@@ -2,19 +2,25 @@
 
 Welcome to the Code Scanning JavaScript Tutorial! This tutorial will take you through how to set up GitHub Advanced Security: Code Scanning as well as interpret results that it may find. The following repository contains vulnerability [CVE-2018-20835](https://github.com/advisories/GHSA-x2mc-8fgj-3wmr) (aka Zip Slip).
 
+## Coverage exercises
+
+This repository includes `.github/workflows/coverage.yml` to generate a coverage report on pull requests. The workflow runs `npm run test:coverage`, uploads the Cobertura report, and posts a coverage summary back to the pull request.
+
+The file `test/coverage-exercises.js` contains commented-out tests that participants can uncomment to increase code coverage and see the pull request coverage report change.
+
 ## Introduction
 
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
 
 You can use code scanning with CodeQL, a semantic code analysis engine. CodeQL treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers.
 
-This tutorial with use CodeQL Analysis with Code Scanning in order to search for vulnerabilities within your code. 
+This tutorial with use CodeQL Analysis with Code Scanning in order to search for vulnerabilities within your code.
 
 ## Instructions
 
 <details>
 <summary>Fork this repo</summary>
-<p> 
+<p>
   
 Begin by [forking this repo](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo).
 </p>
@@ -22,12 +28,11 @@ Begin by [forking this repo](https://docs.github.com/en/free-pro-team@latest/git
 
 <details>
 <summary>Enable Code Scanning</summary>
-<p> 
+<p>
 
 #### Security tab
 
 Click on the `Security` tab.
-
 
 <img src="https://user-images.githubusercontent.com/6920330/96745784-81480380-1394-11eb-886d-55e7c207c9c9.png" width="70%"/>
 
@@ -55,6 +60,7 @@ This will create a GitHub Actions Workflow file with CodeQL already set up. Sinc
 #### Actions Workflow
 
 The Actions Workflow file contains a number of different sections including:
+
 1. Checking out the repository
 2. Initializing the CodeQL Action
 3. Running Autobuilder (not necessary for interpreted languages)
@@ -70,7 +76,7 @@ Click `Start Commit` -> `Commit this file` to commit the changes.
 <summary>GitHub Actions Progress</summary>
 
 <p>
- 
+
 #### GitHub Actions Progress
 
 Click `Actions` tab -> `CodeQL`
@@ -86,7 +92,7 @@ Click the specific workflow run. You can view the progress of the Workflow run u
 <summary>Security Issues</summary>
 <p>
   
-Once the Workflow has completed, click the `Security` tab -> ` Code Scanning Alerts`. An security alert "Arbitrary file write during zip extraction ("Zip Slip")
+Once the Workflow has completed, click the `Security` tab -> `Code Scanning Alerts`. An security alert "Arbitrary file write during zip extraction ("Zip Slip")
 " should be visible.
 
 #### Security Alert View
@@ -156,7 +162,7 @@ In the Pull Request, you will notice that the CodeQL Analysis has started as a s
 
 #### Security Alert Details
 
-After the Workflow has completed click on `Details` by the `Code Scanning Results / CodeQL` status check. 
+After the Workflow has completed click on `Details` by the `Code Scanning Results / CodeQL` status check.
 
 <img src="https://user-images.githubusercontent.com/6920330/96752487-85781f00-139c-11eb-943d-602f2de98998.png" width="80%"/>
 
@@ -166,7 +172,7 @@ Notice that Code Scanning has detected that this Pull Request will fix the Zip S
 
 <img src="https://user-images.githubusercontent.com/6920330/96752486-85781f00-139c-11eb-9a7e-3ccbc81da3d1.png" width="80%"/>
 
-Merge the Pull Request. After the Pull Request has been merged, another Workflow will kick off to scan the repository for any vulnerabilties. 
+Merge the Pull Request. After the Pull Request has been merged, another Workflow will kick off to scan the repository for any vulnerabilties.
 
 #### Closed Security Alerts
 
